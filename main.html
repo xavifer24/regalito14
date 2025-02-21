@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín 💖</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 20px;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+        .btn {
+            font-family: 'Arial, sans-serif', cursive;
+            font-size: 1.5rem;
+        }
+        .hidden {
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 2rem;
+            animation: float 3s linear infinite;
+        }
+        @keyframes float {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-200px); opacity: 0; }
+        }
+        .title {
+            font-family: 'Garamond, bold';
+            font-size: 3rem;
+            color: #000000;
+            margin-top: 20px;
+        }
+        .image-fade {
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
+            animation: fadeIn 1s ease-in-out;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .mt-4 {
+            margin-top: 2rem;
+            font-family: 'Garamond, bold';
+            font-size: 2.5rem;
+        }
+        .memory-grid {
+            margin: 40px auto;
+            width: 800px;
+            padding: 45px 0;
+
+        }        
+        .memory-item {
+            position: relative;
+            margin: 30px auto;
+            width: 600px;
+            padding: 70px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }        
+        .memory-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }        
+        .memory-item img {
+            width: 70%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }        
+        .memory-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+            font-family: 'Garamond', bold;
+            font-size: 2.2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }        
+        .memory-item:hover .memory-caption {
+            opacity: 1;
+        }
+        .memory-item:nth-child(odd) {
+            transform: rotate(-2deg);
+        }        
+        .memory-item:nth-child(even) {
+            transform: rotate(2deg);
+        }        
+        .memory-item.active:nth-child(odd),
+        .memory-item.active:nth-child(even) {
+            transform: rotate(0deg);
+        }        
+        @media (max-width: 768px) {
+            .memory-item img {
+                height: 50px;
+            }
+            
+            .memory-caption {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+        }
+        .contenedor-principal {
+            position: relative; 
+            min-height: 20vh;
+        }
+        .firma-proyecto {
+            font-family: 'Aptos display', sans-serif;
+            font-size: 0.6rem;
+            color: #171717;
+            position: absolute; 
+            bottom: 10px; 
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 5.7;
+        }
+    </style>
+</head>
+<body>
+    <div id="contenidoSorpresa" class="hidden">
+        <img src="1.jpg" class="image-fade" alt="Imagen sorpresa">
+        <h1 class="title">¡Feliz San Valentín mi amor!</h1>
+        <img src="abrazo1.gif" class="img-fluid mt-3" alt="Abrazo animado">
+        <p class="mt-4">Muchas gracias por hacerme tan feliz, por ser mi compañero y apoyarme siempre.</p>
+        <p class="mt-4">💖 ¡Te amo con todo mi corazón! 💖</p>
+        <div class="memory-grid container">
+            <div class="memory-item" data-caption="Nuestros mejores momentos ❤️">
+                <img src="2.jpg" alt="Recuerdo 1">
+                <div class="memory-caption">Desde el día que te ví... ❤️</div>
+            </div>
+            
+            <div class="memory-item" data-caption="Juntos somos imparable ✨">
+                <img src="3.jpg" alt="Recuerdo 2">
+                <div class="memory-caption">mi corazón latió por tí. ✨</div>
+            </div>
+            
+            <div class="memory-item" data-caption="Tu sonrisa es mi felicidad 😊">
+                <img src="4.jpg" alt="Recuerdo 3">
+                <div class="memory-caption">Mis ojos hiciste brillar... 😊</div>
+            </div>
+            
+            <div class="memory-item" data-caption="Contigo todo es mejor 💞">
+                <img src="5.jpg" alt="Recuerdo 4">
+                <div class="memory-caption">y contigo aprendí a soñar. 💞</div>
+            </div>
+            
+            <div class="memory-item" data-caption="Eres mi persona favorita 🌟">
+                <img src="8.jpg" alt="Recuerdo 5">
+                <div class="memory-caption">A tu lado siempre estaré... 🌟</div>
+            </div>
+            
+            <div class="memory-item" data-caption="A tu lado siempre 💖">
+                <img src="7.jpg" alt="Recuerdo 6">
+                <div class="memory-caption">❤️ Y en tu corazón muy feliz seré.🥰</div>
+            </div>
+        </div>
+
+        <p class="mt-4">Gracias por hacerme tan feliz. </p>
+        <p class="mt-4">Con mucho amor, Xavi. 🩷</p>
+
+        <div class="contenedor-principal">
+            <p class="firma-proyecto">Desarrollado por Xavier Fernández Zúñiga - HTML5 - 2025</p>
+        </div>
+    </div>
+    
+    <script>
+        for (let i = 0; i < 15; i++) {
+            let heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "💕";
+            document.body.appendChild(heart);
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.top = Math.random() * window.innerHeight + "px";
+            setTimeout(() => heart.remove(), 3500);
+       }
+    
+        setTimeout(() => {
+            document.getElementById("contenidoSorpresa").classList.remove("hidden");
+        }, 500);
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.memory-item').forEach((item) => {
+            observer.observe(item);
+        });
+
+        document.querySelectorAll('.memory-item').forEach(item => {
+            item.addEventListener('touchstart', function() {
+                this.classList.toggle('hover-effect');
+            });
+        });
+    </script>
+</body>
+</html>
